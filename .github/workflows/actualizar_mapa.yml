@@ -1,0 +1,35 @@
+name: Actualización Diaria del Mapa de Embalses
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clonar Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Entorno Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar Dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install folium pandas requests beautifulsoup4
+
+      - name: Ejecutar Scrapers y Generar HTML
+        run: python generar_mapa.py
+
+      - name: Commit y Push del mapa index.html actualizado
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update: Actualización diaria de embalses"
+          file_pattern: "index.html"
