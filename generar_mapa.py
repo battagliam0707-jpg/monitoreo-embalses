@@ -135,3 +135,33 @@ for _, r in df.iterrows():
 folium.LayerControl().add_to(mapa)
 mapa.add_child(MeasureControl())
 mapa.save("index.html")
+
+geojson_data = {
+    "type": "FeatureCollection",
+    "features": []
+}
+
+for _, r in df.iterrows():
+    feature = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [float(r["lon"]), float(r["lat"])]
+        },
+        "properties": {
+            "id": r["id"],
+            "nombre": r["nombre"],
+            "pais": r["pais"],
+            "rio": r["rio"],
+            "capacidad_mw": r["capacidad_mw"],
+            "volumen_pct": r["volumen_pct"],
+            "fecha_actualizacion": r["fecha_actualizacion"],
+            "fuente_datos": r["fuente_datos"]
+        }
+    }
+    geojson_data["features"].append(feature)
+
+with open("embalses.geojson", "w", encoding="utf-8") as f:
+    json.dump(geojson_data, f, ensure_ascii=False, indent=2)
+
+print("Proceso finalizado: index.html y embalses.geojson generados correctamente.")
