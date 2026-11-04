@@ -1,0 +1,205 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.588,
+          -25.412
+        ]
+      },
+      "properties": {
+        "id": "ITAIPU",
+        "nombre": "Represa de Itaipú",
+        "pais": "Brasil / Paraguay",
+        "rio": "Río Paraná",
+        "capacidad_mw": 14000.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Telemetría Satelital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.998,
+          7.766
+        ]
+      },
+      "properties": {
+        "id": "GURI",
+        "nombre": "Central Hidroeléctrica Simón Bolívar (Guri)",
+        "pais": "Venezuela",
+        "rio": "Río Caroní",
+        "capacidad_mw": 10200.0,
+        "volumen_pct": 58.2,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Altimetría Satelital DAHITI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.648,
+          -3.831
+        ]
+      },
+      "properties": {
+        "id": "TUCURUI",
+        "nombre": "Presa de Tucuruí",
+        "pais": "Brasil",
+        "rio": "Río Tocantins",
+        "capacidad_mw": 8370.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Telemetría Satelital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.214,
+          -9.397
+        ]
+      },
+      "properties": {
+        "id": "PAULO_AFONSO",
+        "nombre": "Complejo Hidroeléctrico Paulo Afonso",
+        "pais": "Brasil",
+        "rio": "Río São Francisco",
+        "capacidad_mw": 4279.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Telemetría Satelital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.737,
+          -27.482
+        ]
+      },
+      "properties": {
+        "id": "YACYRETA",
+        "nombre": "Presa de Yacyretá",
+        "pais": "Argentina / Paraguay",
+        "rio": "Río Paraná",
+        "capacidad_mw": 4050.0,
+        "volumen_pct": 89.6,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "EBY Boletín (82.72 mSNM)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.365,
+          -20.382
+        ]
+      },
+      "properties": {
+        "id": "ILHA_SOLTEIRA",
+        "nombre": "Represa de Ilha Solteira",
+        "pais": "Brasil",
+        "rio": "Río Paraná",
+        "capacidad_mw": 3200.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Telemetría Satelital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.668,
+          8.304
+        ]
+      },
+      "properties": {
+        "id": "MACAGUA",
+        "nombre": "Represa de Las Macagua (I, II y III)",
+        "pais": "Venezuela",
+        "rio": "Río Caroní",
+        "capacidad_mw": 3167.5,
+        "volumen_pct": 78.5,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Altimetría Satelital DAHITI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -37.965,
+          -9.625
+        ]
+      },
+      "properties": {
+        "id": "XINGO",
+        "nombre": "Presa de Xingó",
+        "pais": "Brasil",
+        "rio": "Río São Francisco",
+        "capacidad_mw": 3162.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Telemetría Satelital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.664,
+          7.135
+        ]
+      },
+      "properties": {
+        "id": "HIDROITUANGO",
+        "nombre": "Hidroituango",
+        "pais": "Colombia",
+        "rio": "Río Cauca",
+        "capacidad_mw": 2400.0,
+        "volumen_pct": 52.4,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "XM Colombia (Portal)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.798,
+          8.157
+        ]
+      },
+      "properties": {
+        "id": "CARUACHI",
+        "nombre": "Represa de Caruachi",
+        "pais": "Venezuela",
+        "rio": "Río Caroní",
+        "capacidad_mw": 2160.0,
+        "volumen_pct": 74.8,
+        "fecha_actualizacion": "2026-11-04",
+        "fuente_datos": "Altimetría Satelital DAHITI"
+      }
+    }
+  ]
+}
