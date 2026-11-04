@@ -2,20 +2,23 @@ name: Actualización Diaria del Mapa de Embalses
 
 on:
   schedule:
-    - cron: '0 4 * * *'
-  workflow_dispatch:
+    - cron: '0 11 * * *'  # Se ejecuta automáticamente todos los días a las 11:00 UTC
+  workflow_dispatch:      # Permite la ejecución manual desde la pestaña Actions
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - name: Clonar Repositorio
+      - name: Checkout del código
         uses: actions/checkout@v4
 
-      - name: Configurar Entorno Python
+      - name: Configurar Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -23,13 +26,16 @@ jobs:
       - name: Instalar Dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install folium pandas requests beautifulsoup4
+          pip install pandas requests beautifulsoup4 folium
 
-      - name: Ejecutar Scrapers y Generar HTML
-        run: python generar_mapa.py
+      - name: Ejecutar Scrapers y Generar HTML / GeoJSON
+        run: |
+          python generar_mapa.py
 
-      - name: Commit y Push del mapa index.html actualizado
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Auto-update: Actualización diaria de embalses"
-          file_pattern: "index.html"
+      - name: Commit y Push de los archivos actualizados
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html embalses.geojson
+          git diff --staged --quiet || git commit -m "Auto-update map and GeoJSON [skip ci]"
+          git push
