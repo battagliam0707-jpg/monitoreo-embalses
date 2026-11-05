@@ -22,7 +22,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -46,7 +46,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -70,7 +70,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -94,7 +94,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -118,7 +118,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -142,7 +142,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -166,7 +166,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -190,7 +190,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -214,7 +214,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -238,7 +238,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -262,7 +262,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -286,7 +286,7 @@
         "color_hex": "#E74C3C",
         "estado_desc": "Riesgo Desbordamiento (>85%)",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -310,7 +310,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -334,7 +334,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -358,7 +358,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -382,7 +382,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -406,7 +406,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -430,7 +430,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -454,7 +454,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     },
     {
@@ -478,7 +478,7 @@
         "color_hex": "#27AE60",
         "estado_desc": "Condición Óptima",
         "diff_num": 0.0,
-        "diferencial_str": "N/D"
+        "diferencial_str": "0.0%"
       }
     }
   ]
