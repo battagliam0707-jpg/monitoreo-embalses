@@ -515,11 +515,16 @@ mapa.save("index.html")
 
 # --- ACTUALIZACIÓN DE EXCEL HISTÓRICO ---
 try:
-    df_historico_previo = pd.read_excel(archivo_excel)
-    df_historico = pd.concat([df_historico_previo, df], ignore_index=True)
-    df_historico = df_historico.drop_duplicates(subset=["id", "fecha_actualizacion"], keep="last")
-except FileNotFoundError:
-    df_historico = df
+    try:
+        df_historico_previo = pd.read_excel(archivo_excel)
+        df_historico = pd.concat([df_historico_previo, df], ignore_index=True)
+        df_historico = df_historico.drop_duplicates(subset=["id", "fecha_actualizacion"], keep="last")
+    except FileNotFoundError:
+        df_historico = df
 
-df_historico.to_excel(archivo_excel, index=False)
+    df_historico.to_excel(archivo_excel, index=False)
+    print("Histórico actualizado en Excel exitosamente.")
+except Exception as e:
+    print(f"Advertencia: No se pudo guardar el archivo Excel ({e}). Se continúa con la generación del mapa.")
+
 print("Proceso completado exitosamente: Diferencial de 24h calculado e integrado a la tabla y barras.")
