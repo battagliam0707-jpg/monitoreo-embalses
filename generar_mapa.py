@@ -10,13 +10,26 @@ from folium.plugins import MeasureControl
 # --- LECTURA PREVIA DEL HISTÓRICO PARA CALCULAR VARIACIÓN ---
 archivo_excel = "historico_embalses.xlsx"
 valores_previos = {}
+hoy_str = datetime.date.today().strftime("%Y-%m-%d")
 
 try:
     df_historico_previo = pd.read_excel(archivo_excel)
     if not df_historico_previo.empty and "id" in df_historico_previo.columns:
-        df_sorted = df_historico_previo.sort_values(by=["fecha_actualizacion"])
+        # Convertir a texto para comparar fechas correctamente
+        df_historico_previo["fecha_actualizacion"] = df_historico_previo["fecha_actualizacion"].astype(str)
+        
+        # Filtrar solo lecturas de días ANTERIORES a hoy
+        df_anteriores = df_historico_previo[df_historico_previo["fecha_actualizacion"] < hoy_str]
+        
+        # Si no hay días anteriores en el archivo, toma los datos cargados hasta el momento
+        if df_anteriores.empty:
+            df_anteriores = df_historico_previo
+
+        df_sorted = df_anteriores.sort_values(by=["fecha_actualizacion"])
         for emb_id, group in df_sorted.groupby("id"):
             valores_previos[emb_id] = float(group.iloc[-1]["volumen_pct"])
+            
+    print(f"Histórico cargado correctamente. Registros previos encontrados: {len(valores_previos)}")
 except Exception as e:
     print(f"Aviso: No se pudo leer histórico previo para calcular variación ({e})")
 
