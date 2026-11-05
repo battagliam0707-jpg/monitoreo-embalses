@@ -17,8 +17,12 @@
         "rio": "Río Paraná",
         "capacidad_mw": 14000.0,
         "volumen_pct": 60.0,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Telemetría Satelital"
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -26,19 +30,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -62.998,
-          7.766
+          -51.777,
+          -3.123
         ]
       },
       "properties": {
-        "id": "GURI",
-        "nombre": "Central Hidroeléctrica Simón Bolívar (Guri)",
-        "pais": "Venezuela",
-        "rio": "Río Caroní",
-        "capacidad_mw": 10200.0,
-        "volumen_pct": 58.2,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Altimetría Satelital DAHITI"
+        "id": "BELO_MONTE",
+        "nombre": "Central Hidroeléctrica de Belo Monte",
+        "pais": "Brasil",
+        "rio": "Río Xingu",
+        "capacidad_mw": 11233.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -57,8 +65,12 @@
         "rio": "Río Tocantins",
         "capacidad_mw": 8370.0,
         "volumen_pct": 60.0,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Telemetría Satelital"
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -77,8 +89,12 @@
         "rio": "Río São Francisco",
         "capacidad_mw": 4279.0,
         "volumen_pct": 60.0,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Telemetría Satelital"
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -86,19 +102,47 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -56.737,
-          -27.482
+          -64.643,
+          -9.266
         ]
       },
       "properties": {
-        "id": "YACYRETA",
-        "nombre": "Presa de Yacyretá",
-        "pais": "Argentina / Paraguay",
-        "rio": "Río Paraná",
-        "capacidad_mw": 4050.0,
-        "volumen_pct": 89.6,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "EBY Boletín (82.72 mSNM)"
+        "id": "JIRAU",
+        "nombre": "Central Hidroeléctrica de Jirau",
+        "pais": "Brasil",
+        "rio": "Río Madeira",
+        "capacidad_mw": 3750.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.951,
+          -8.802
+        ]
+      },
+      "properties": {
+        "id": "SANTO_ANTONIO",
+        "nombre": "Central Hidroeléctrica Santo Antônio",
+        "pais": "Brasil",
+        "rio": "Río Madeira",
+        "capacidad_mw": 3568.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -117,28 +161,12 @@
         "rio": "Río Paraná",
         "capacidad_mw": 3200.0,
         "volumen_pct": 60.0,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Telemetría Satelital"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -62.668,
-          8.304
-        ]
-      },
-      "properties": {
-        "id": "MACAGUA",
-        "nombre": "Represa de Las Macagua (I, II y III)",
-        "pais": "Venezuela",
-        "rio": "Río Caroní",
-        "capacidad_mw": 3167.5,
-        "volumen_pct": 78.5,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Altimetría Satelital DAHITI"
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -157,8 +185,12 @@
         "rio": "Río São Francisco",
         "capacidad_mw": 3162.0,
         "volumen_pct": 60.0,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Telemetría Satelital"
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -166,19 +198,47 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.664,
-          7.135
+          -62.998,
+          7.766
         ]
       },
       "properties": {
-        "id": "HIDROITUANGO",
-        "nombre": "Hidroituango",
-        "pais": "Colombia",
-        "rio": "Río Cauca",
-        "capacidad_mw": 2400.0,
-        "volumen_pct": 52.4,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "XM Colombia (Portal)"
+        "id": "GURI",
+        "nombre": "Central Simón Bolívar (Guri)",
+        "pais": "Venezuela",
+        "rio": "Río Caroní",
+        "capacidad_mw": 10200.0,
+        "volumen_pct": 58.2,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.668,
+          8.304
+        ]
+      },
+      "properties": {
+        "id": "MACAGUA",
+        "nombre": "Represa de Las Macagua (I, II y III)",
+        "pais": "Venezuela",
+        "rio": "Río Caroní",
+        "capacidad_mw": 3167.5,
+        "volumen_pct": 78.5,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     },
     {
@@ -197,8 +257,228 @@
         "rio": "Río Caroní",
         "capacidad_mw": 2160.0,
         "volumen_pct": 74.8,
-        "fecha_actualizacion": "2026-11-04",
-        "fuente_datos": "Altimetría Satelital DAHITI"
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.737,
+          -27.482
+        ]
+      },
+      "properties": {
+        "id": "YACYRETA",
+        "nombre": "Presa de Yacyretá",
+        "pais": "Argentina / Paraguay",
+        "rio": "Río Paraná",
+        "capacidad_mw": 4050.0,
+        "volumen_pct": 89.6,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "EBY Boletín (82.72 mSNM)",
+        "color_hex": "#E74C3C",
+        "estado_desc": "Riesgo Desbordamiento (>85%)",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.938,
+          -31.275
+        ]
+      },
+      "properties": {
+        "id": "SALTO_GRANDE",
+        "nombre": "Represa de Salto Grande",
+        "pais": "Argentina / Uruguay",
+        "rio": "Río Uruguay",
+        "capacidad_mw": 1890.0,
+        "volumen_pct": 64.2,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.013,
+          -40.078
+        ]
+      },
+      "properties": {
+        "id": "PIEDRA_DEL_AGUILA",
+        "nombre": "Embalse Piedra del Águila",
+        "pais": "Argentina",
+        "rio": "Río Limay",
+        "capacidad_mw": 1400.0,
+        "volumen_pct": 72.1,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.751,
+          -39.273
+        ]
+      },
+      "properties": {
+        "id": "EL_CHOCON",
+        "nombre": "Embalse El Chocón",
+        "pais": "Argentina",
+        "rio": "Río Limay",
+        "capacidad_mw": 1200.0,
+        "volumen_pct": 69.8,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.664,
+          7.135
+        ]
+      },
+      "properties": {
+        "id": "HIDROITUANGO",
+        "nombre": "Hidroituango",
+        "pais": "Colombia",
+        "rio": "Río Cauca",
+        "capacidad_mw": 2400.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.508,
+          4.723
+        ]
+      },
+      "properties": {
+        "id": "GUAVIO",
+        "nombre": "Central Hidroeléctrica del Guavio",
+        "pais": "Colombia",
+        "rio": "Río Guavio",
+        "capacidad_mw": 1250.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.161,
+          6.232
+        ]
+      },
+      "properties": {
+        "id": "PENOL_GUATAPE",
+        "nombre": "Embalse El Peñol - Guatapé",
+        "pais": "Colombia",
+        "rio": "Río Nare",
+        "capacidad_mw": 560.0,
+        "volumen_pct": 60.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Telemetría Satelital Backup",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.654,
+          -12.213
+        ]
+      },
+      "properties": {
+        "id": "MANTARO",
+        "nombre": "Complejo Hidroeléctrico del Mantaro",
+        "pais": "Perú",
+        "rio": "Río Mantaro",
+        "capacidad_mw": 1008.0,
+        "volumen_pct": 81.0,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.552,
+          -37.998
+        ]
+      },
+      "properties": {
+        "id": "RALCO",
+        "nombre": "Central Hidroeléctrica Ralco",
+        "pais": "Chile",
+        "rio": "Río Biobío",
+        "capacidad_mw": 690.0,
+        "volumen_pct": 55.4,
+        "fecha_actualizacion": "2026-11-05",
+        "fuente_datos": "Altimetría Satelital DAHITI / CTM",
+        "color_hex": "#27AE60",
+        "estado_desc": "Condición Óptima",
+        "diff_num": 0.0,
+        "diferencial_str": "N/D"
       }
     }
   ]
