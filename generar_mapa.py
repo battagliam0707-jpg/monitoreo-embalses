@@ -7,6 +7,20 @@ from bs4 import BeautifulSoup
 import folium
 from folium.plugins import MeasureControl
 
+# --- LECTURA PREVIA DEL HISTÓRICO PARA CALCULAR VARIACIÓN ---
+archivo_excel = "historico_embalses.xlsx"
+valores_previos = {}
+
+try:
+    df_historico_previo = pd.read_excel(archivo_excel)
+    if not df_historico_previo.empty and "id" in df_historico_previo.columns:
+        df_sorted = df_historico_previo.sort_values(by=["fecha_actualizacion"])
+        for emb_id, group in df_sorted.groupby("id"):
+            valores_previos[emb_id] = float(group.iloc[-1]["volumen_pct"])
+except Exception as e:
+    print(f"Aviso: No se pudo leer histórico previo para calcular variación ({e})")
+
+
 def obtener_datos_ons_brasil(codigo_ons):
     try:
         url = "https://dados.ons.org.br/api/3/action/datastore_search?resource_id=ear-diario-por-reservatorio"
@@ -44,7 +58,8 @@ def obtener_datos_yacyreta_argentina():
 def obtener_datos_colombia_xm(codigo_xm):
     try:
         url_xm = "https://api.xm.com.co/servicios-publicos/v1/indicadores/volumen-util-reservorio"
-        resp = requests.get(url_xm, timeout=6)
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        resp = requests.get(url_xm, headers=headers, timeout=8)
         if resp.status_code == 200:
             datos = resp.json().get("datos", [])
             for d in datos:
@@ -116,6 +131,20 @@ for p in represas:
 
     pct, fecha, fuente = res
 
+    # Cálculo del diferencial respecto a la última medición
+    pct_previo = valores_previos.get(p["id"])
+    if pct_previo is not None:
+        diff_num = round(pct - pct_previo, 1)
+        if diff_num > 0:
+            diff_str = f"+{diff_num}%"
+        elif diff_num < 0:
+            diff_str = f"{diff_num}%"
+        else:
+            diff_str = "0.0%"
+    else:
+        diff_num = 0.0
+        diff_str = "N/D"
+
     if 50.0 <= pct <= 85.0:
         color_folium = "green"
         color_hex = "#27AE60"
@@ -136,13 +165,14 @@ for p in represas:
         "fuente_datos": fuente,
         "color": color_folium,
         "color_hex": color_hex,
-        "estado_desc": estado_desc
+        "estado_desc": estado_desc,
+        "diff_num": diff_num,
+        "diferencial_str": diff_str
     })
     lista_procesada.append(p_mod)
 
 df = pd.DataFrame(lista_procesada)
 
-# --- MAPA BASE CON ESRI TOPOGRAFÍA COMO CAPA PRINCIPAL/PRESET ---
 mapa = folium.Map(
     location=[-15.0, -65.0],
     zoom_start=4,
@@ -152,7 +182,6 @@ mapa = folium.Map(
     control_scale=True
 )
 
-# Capa secundaria Satelital (show=False fuerza que NO inicie activa)
 folium.TileLayer(
     tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     attr="Esri World Imagery",
@@ -160,7 +189,6 @@ folium.TileLayer(
     show=False
 ).add_to(mapa)
 
-# --- LÍMITES FRONTERIZOS EN NEGRO SIN NOMBRES ---
 try:
     url_fronteras = "https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/south-america.geojson"
     resp_f = requests.get(url_fronteras, timeout=6)
@@ -179,7 +207,6 @@ try:
 except Exception as e:
     print(f"Aviso: No se pudieron descargar las fronteras ({e})")
 
-# --- MARCADORES DE EMBALSES ---
 for _, r in df.iterrows():
     popup_html = f"""
     <div style="font-family: Arial, sans-serif; width: 250px; font-size: 12px;">
@@ -192,7 +219,7 @@ for _, r in df.iterrows():
         <b>Prod. Anual Máx:</b> {r['produccion_twh']} TWh<br>
         <b>Área Inundada:</b> {r['area_km2']} km²
         <div style="margin-top: 8px; padding: 6px; background-color: #F4F6F6; border-left: 4px solid {r['color_hex']};">
-            <b>Nivel Actual:</b> <span style="font-size: 14px; font-weight: bold; color:{r['color_hex']};">{r['volumen_pct']}%</span><br>
+            <b>Nivel Actual:</b> <span style="font-size: 14px; font-weight: bold; color:{r['color_hex']};">{r['volumen_pct']}%</span> <small>({r['diferencial_str']})</small><br>
             <small><b>Estado:</b> {r['estado_desc']}</small><br>
             <small><b>Fecha:</b> {r['fecha_actualizacion']}</small><br>
             <small><b>Origen:</b> {r['fuente_datos']}</small>
@@ -204,18 +231,16 @@ for _, r in df.iterrows():
         location=[r['lat'], r['lon']],
         radius=radio,
         popup=folium.Popup(popup_html, max_width=300),
-        tooltip=f"{r['nombre']} ({r['volumen_pct']}%)",
+        tooltip=f"{r['nombre']} ({r['volumen_pct']}%) [{r['diferencial_str']}]",
         color=r['color'],
         fill=True,
         fill_color=r['color'],
         fill_opacity=0.8
     ).add_to(mapa)
 
-# --- CONTROLES EN LA ESQUINA INFERIOR DERECHA ---
 folium.LayerControl(position="bottomright").add_to(mapa)
 mapa.add_child(MeasureControl(position="bottomright"))
 
-# --- GENERACIÓN DE CAPA GEOJSON ---
 geojson_data = {"type": "FeatureCollection", "features": []}
 for _, r in df.iterrows():
     feature = {
@@ -225,7 +250,8 @@ for _, r in df.iterrows():
             "id": r["id"], "nombre": r["nombre"], "pais": r["pais"],
             "rio": r["rio"], "capacidad_mw": r["capacidad_mw"],
             "volumen_pct": r["volumen_pct"], "fecha_actualizacion": r["fecha_actualizacion"],
-            "fuente_datos": r["fuente_datos"], "color_hex": r["color_hex"], "estado_desc": r["estado_desc"]
+            "fuente_datos": r["fuente_datos"], "color_hex": r["color_hex"], "estado_desc": r["estado_desc"],
+            "diff_num": r["diff_num"], "diferencial_str": r["diferencial_str"]
         }
     }
     geojson_data["features"].append(feature)
@@ -233,7 +259,6 @@ for _, r in df.iterrows():
 with open("embalses.geojson", "w", encoding="utf-8") as f:
     json.dump(geojson_data, f, ensure_ascii=False, indent=2)
 
-# --- INYECCIÓN DE DASHBOARD Y ESTILOS CSS ---
 json_represas_js = json.dumps(lista_procesada, ensure_ascii=False)
 
 widget_html = f"""
@@ -247,7 +272,7 @@ widget_html = f"""
         position: fixed;
         top: 10px;
         right: 10px;
-        width: 360px;
+        width: 380px;
         max-height: 85vh;
         background: rgba(255, 255, 255, 0.96);
         border-radius: 8px;
@@ -366,6 +391,7 @@ widget_html = f"""
                     <th>País</th>
                     <th>MW</th>
                     <th>Nivel</th>
+                    <th>Var. 24h</th>
                 </tr>
             </thead>
             <tbody id="tablaBody"></tbody>
@@ -418,14 +444,19 @@ widget_html = f"""
         const tbody = document.getElementById('tablaBody');
         tbody.innerHTML = '';
         if (visibles.length === 0) {{
-            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:8px;">Sin represas en pantalla</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:8px;">Sin represas en pantalla</td></tr>';
         }} else {{
             visibles.forEach(d => {{
+                let colorDiff = d.diff_num > 0 ? '#27AE60' : (d.diff_num < 0 ? '#E74C3C' : '#7F8C8D');
+                let iconDiff = d.diff_num > 0 ? '▲ ' : (d.diff_num < 0 ? '▼ ' : '');
+                let diffDisplay = d.diferencial_str !== 'N/D' ? `${iconDiff}${d.diferencial_str}` : 'N/D';
+
                 const row = `<tr>
                     <td><b>${{d.nombre}}</b></td>
                     <td>${{d.pais.split('/')[0].trim()}}</td>
                     <td>${{d.capacidad_mw.toLocaleString()}}</td>
                     <td><b style="color:${{d.color_hex}}">${{d.volumen_pct}}%</b></td>
+                    <td><span style="color:${{colorDiff}}; font-weight:bold;">${{diffDisplay}}</span></td>
                 </tr>`;
                 tbody.innerHTML += row;
             }});
@@ -438,11 +469,18 @@ widget_html = f"""
         }} else {{
             const ordenados = [...visibles].sort((a, b) => b.volumen_pct - a.volumen_pct);
             ordenados.forEach(d => {{
+                let colorDiff = d.diff_num > 0 ? '#27AE60' : (d.diff_num < 0 ? '#E74C3C' : '#7F8C8D');
+                let iconDiff = d.diff_num > 0 ? '▲ ' : (d.diff_num < 0 ? '▼ ' : '');
+                let diffDisplay = d.diferencial_str !== 'N/D' ? `${iconDiff}${d.diferencial_str}` : '';
+
                 const item = `
                 <div class="bar-container">
                     <div class="bar-label">
                         <span>${{d.nombre}} (${{d.pais.split('/')[0].trim()}})</span>
-                        <span style="color:${{d.color_hex}}">${{d.volumen_pct}}%</span>
+                        <div>
+                            <span style="color:${{d.color_hex}}">${{d.volumen_pct}}%</span>
+                            <small style="color:${{colorDiff}}; margin-left:4px;">${{diffDisplay}}</small>
+                        </div>
                     </div>
                     <div class="bar-bg">
                         <div class="bar-fill" style="width: ${{d.volumen_pct}}%; background-color: ${{d.color_hex}};"></div>
@@ -475,7 +513,7 @@ widget_html = f"""
 mapa.get_root().html.add_child(folium.Element(widget_html))
 mapa.save("index.html")
 
-archivo_excel = "historico_embalses.xlsx"
+# --- ACTUALIZACIÓN DE EXCEL HISTÓRICO ---
 try:
     df_historico_previo = pd.read_excel(archivo_excel)
     df_historico = pd.concat([df_historico_previo, df], ignore_index=True)
@@ -484,4 +522,4 @@ except FileNotFoundError:
     df_historico = df
 
 df_historico.to_excel(archivo_excel, index=False)
-print("Proceso completado: Esri Topografía fijado como capa por defecto (preset).")
+print("Proceso completado exitosamente: Diferencial de 24h calculado e integrado a la tabla y barras.")
