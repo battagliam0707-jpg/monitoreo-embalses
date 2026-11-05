@@ -449,7 +449,7 @@ widget_html = f"""
             visibles.forEach(d => {{
                 let colorDiff = d.diff_num > 0 ? '#27AE60' : (d.diff_num < 0 ? '#E74C3C' : '#7F8C8D');
                 let iconDiff = d.diff_num > 0 ? '▲ ' : (d.diff_num < 0 ? '▼ ' : '');
-                let diffDisplay = d.diferencial_str !== 'N/D' ? `${iconDiff}${d.diferencial_str}` : 'N/D';
+                let diffDisplay = d.diferencial_str !== 'N/D' ? `${{iconDiff}}${{d.diferencial_str}}` : 'N/D';
 
                 const row = `<tr>
                     <td><b>${{d.nombre}}</b></td>
@@ -471,7 +471,7 @@ widget_html = f"""
             ordenados.forEach(d => {{
                 let colorDiff = d.diff_num > 0 ? '#27AE60' : (d.diff_num < 0 ? '#E74C3C' : '#7F8C8D');
                 let iconDiff = d.diff_num > 0 ? '▲ ' : (d.diff_num < 0 ? '▼ ' : '');
-                let diffDisplay = d.diferencial_str !== 'N/D' ? `${iconDiff}${d.diferencial_str}` : '';
+                let diffDisplay = d.diferencial_str !== 'N/D' ? `${{iconDiff}}${{d.diferencial_str}}` : '';
 
                 const item = `
                 <div class="bar-container">
